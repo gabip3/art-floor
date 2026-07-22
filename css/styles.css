@@ -157,7 +157,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .hero__title { font-family: var(--serif); font-weight: 700; font-size: clamp(3rem, 10vw, 8rem); line-height: 1.04; letter-spacing: -.005em; color: #fff; }
 .hero__title .line { display: block; overflow: hidden; padding: .1em 0 .16em; margin: -.13em 0; }
 .hero__title .line > span { display: block; }
-.hero__title em { font-style: normal; color: var(--coral); }
+.hero__title em { font-style: italic; font-weight: 700; color: inherit; }
 .hero__lead { margin-top: 24px; max-width: 44ch; font-size: clamp(1rem, 1.3vw, 1.15rem); line-height: 1.55; color: rgba(255,255,255,.9); }
 .hero__cta { display: flex; align-items: center; gap: clamp(20px, 3vw, 34px); flex-wrap: wrap; margin-top: clamp(28px, 4vw, 38px); }
 .hero__facts { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 18px; }
@@ -298,6 +298,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .svc:hover .svc__t h3 { color: var(--green); }
 .svc:hover .svc__arw { color: var(--coral); transform: translateX(7px); }
 @media (max-width: 600px) { .svc { grid-template-columns: auto 1fr; } .svc__arw { display: none; } }
+
+.svc--lead { background: linear-gradient(90deg, rgba(188,90,45,.07), transparent 68%); border-radius: 4px; }
+.svc--lead .svc__ico { color: #fff; border-color: var(--coral); }
+.svc--lead .svc__ico::before { transform: scale(1); }
+.svc--lead:hover .svc__ico { transform: rotate(-6deg) scale(1.05); }
+.svc__tag { display: block; font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--coral); margin-bottom: 8px; }
 
 /* ---------- Gallery wall (horizontal) ---------- */
 .wall { padding-block: var(--sp) clamp(30px, 4vw, 56px); background: var(--bone); overflow: hidden; }
