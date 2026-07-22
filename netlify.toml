@@ -1,0 +1,18 @@
+# Netlify configuration — static site, no build step
+[build]
+  publish = "."
+
+# Images: short cache + revalidate so photo swaps show up quickly
+[[headers]]
+  for = "/assets/web/*"
+  [headers.values]
+    Cache-Control = "public, max-age=600, must-revalidate"
+
+# Sensible security headers for all pages
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"

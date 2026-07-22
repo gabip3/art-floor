@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Art Floor">
+  <defs>
+    <clipPath id="af-badge"><rect x="9" y="9" width="102" height="102" rx="21"/></clipPath>
+  </defs>
+  <!-- badge -->
+  <rect x="6" y="6" width="108" height="108" rx="24" fill="#F3EEE0" stroke="#1C1C1A" stroke-width="6"/>
+  <g clip-path="url(#af-badge)">
+    <!-- top-right beige triangle -->
+    <polygon points="84,9 111,9 111,38" fill="#E3D8BF"/>
+    <!-- bottom-right teal triangle -->
+    <polygon points="111,84 111,111 84,111" fill="#2E4A57"/>
+    <!-- terracotta squared C -->
+    <path d="M50,30 L24,30 L24,90 L50,90 L50,78 L37,78 L37,42 L50,42 Z" fill="#BC5A2D"/>
+  </g>
+  <!-- wordmark -->
+  <g fill="#1C1C1A" font-family="Arial, Helvetica, sans-serif" font-weight="800" letter-spacing="-0.5">
+    <text x="43" y="64" font-size="23">Art</text>
+    <text x="43" y="88" font-size="23">Floor</text>
+  </g>
+</svg>

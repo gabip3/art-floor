@@ -1,0 +1,13 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dependencies (not used - static site)
+node_modules/
+
+# Netlify (no longer used)
+.netlify/
+
+# Logs / temp
+*.log
