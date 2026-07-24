@@ -51,6 +51,17 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .skip-link { position: absolute; left: 12px; top: -60px; z-index: 200; background: var(--green); color: #fff; padding: 10px 16px; transition: top .2s; }
 .skip-link:focus { top: 12px; }
 
+/* ---------- Intro splash ---------- */
+.splash { position: fixed; inset: 0; z-index: 999; background: var(--green); display: flex; align-items: center; justify-content: center; transition: opacity .6s var(--ease), visibility .6s; }
+.splash.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.splash__inner { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+.splash__mark { width: clamp(92px, 15vw, 144px); height: auto; opacity: 0; transform: scale(.85); animation: splashPop .7s var(--ease) forwards; }
+@keyframes splashPop { to { opacity: 1; transform: scale(1); } }
+.splash__bar { width: min(220px, 42vw); height: 3px; border-radius: 2px; background: rgba(255,255,255,.18); overflow: hidden; }
+.splash__fill { display: block; height: 100%; width: 0%; background: var(--coral); transition: width 1.1s var(--ease); }
+.splash__tag { font-family: var(--sans); font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.72); text-align: center; }
+@media (prefers-reduced-motion: reduce) { .splash__mark { animation: none; opacity: 1; transform: none; } .splash { transition: none; } }
+
 /* ---------- Utility: measured tick-label ---------- */
 .tick-label {
   font-family: var(--sans); font-size: .72rem; font-weight: 600;
@@ -124,12 +135,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .wordmark--light .wordmark__sub { color: rgba(255,255,255,.6); }
 
 .mast__nav { display: flex; gap: 30px; margin-left: 18px; margin-right: auto; }
-.mast__nav a { position: relative; font-size: .92rem; font-weight: 500; color: var(--ink-soft); padding: 6px 0; }
+.mast__nav a { position: relative; font-size: 1.05rem; font-weight: 500; color: var(--ink-soft); padding: 6px 0; }
 .mast__nav a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 1.5px; background: var(--coral); transition: width .35s var(--ease); }
 .mast__nav a:hover { color: var(--green); }
 .mast__nav a:hover::after { width: 100%; }
 
-.burger { display: none; width: 44px; height: 44px; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
+.burger { display: none; width: 44px; height: 44px; flex-direction: column; align-items: center; justify-content: center; gap: 6px; margin-left: auto; }
 .burger span { width: 24px; height: 2px; background: var(--green); transition: transform .35s var(--ease), opacity .3s; }
 .burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(4px) rotate(45deg); }
 .burger[aria-expanded="true"] span:nth-child(2) { transform: translateY(-4px) rotate(-45deg); }

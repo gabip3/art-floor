@@ -5,6 +5,18 @@
   "use strict";
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ---- Intro splash ---- */
+  var splash = document.getElementById("splash");
+  if (splash) {
+    var splashFill = document.getElementById("splashFill");
+    requestAnimationFrame(function () { if (splashFill) splashFill.style.width = "100%"; });
+    setTimeout(function () {
+      splash.classList.add("is-hidden");
+      splash.setAttribute("aria-hidden", "true");
+      setTimeout(function () { splash.style.display = "none"; }, reduce ? 0 : 650);
+    }, reduce ? 500 : 1300);
+  }
+
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
