@@ -16,7 +16,7 @@
   <meta property="og:image" content="https://www.artfloor.example/assets/web/og.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <link rel="icon" type="image/svg+xml" href="assets/web/logo.svg" />
+  <link rel="icon" type="image/png" href="assets/web/logo-mark.png" />
 
   <link rel="preconnect" href="https://api.fontshare.com" />
   <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
@@ -48,7 +48,7 @@
 <header class="mast" id="mast">
   <div class="mast__inner">
     <a class="brand-logo" href="#top" aria-label="Art Floor LLC home">
-      <span class="wordmark-text">Art Floor</span>
+      <img src="assets/web/logo-horizontal.png" alt="Art Floor" width="1224" height="560" decoding="async" />
     </a>
 
     <nav class="mast__nav" aria-label="Primary">
@@ -242,15 +242,23 @@
   <div class="wall__bar" aria-hidden="true"><span id="wallProgress"></span></div>
 </section>
 
-<!-- ===== BEFORE / AFTER (interactive drag reveal) ===== -->
+<!-- ===== BEFORE / AFTER (interactive drag reveal, 2 real projects) ===== -->
 <section class="ba tiletex" id="transformation">
   <div class="ba__grid">
     <div class="ba__text reveal">
       <h2 class="ba__heading">The transformation</h2>
-      <p>Same shower, reimagined. Drag the handle to watch a dated, builder-grade shower become a bright tiled walk-in retreat.</p>
+      <p id="baCaption">Same shower, reimagined. Drag the handle to watch a dated, builder-grade shower become a bright tiled walk-in retreat.</p>
       <span class="ba__hint" aria-hidden="true">Drag to reveal
         <svg viewBox="0 0 24 24" width="16" height="16"><path d="M9 6l-4 6 4 6M15 6l4 6-4 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
+      <div class="ba__nav">
+        <button class="ba__arw" id="baPrev" type="button" aria-label="Previous project"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="ba__dots" id="baDots">
+          <button type="button" class="is-active" aria-label="Project 1"></button>
+          <button type="button" aria-label="Project 2"></button>
+        </div>
+        <button class="ba__arw" id="baNext" type="button" aria-label="Next project"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
     </div>
 
     <div class="ba__stage reveal" style="--d:1">
@@ -258,9 +266,9 @@
       <span class="ba__deco ba__deco--ring" aria-hidden="true"></span>
       <span class="ba__deco ba__deco--frame" aria-hidden="true"></span>
       <div class="ba__viewer" id="baViewer">
-      <img class="ba__img" src="assets/web/ba-after.jpg" alt="Finished tiled walk-in shower" width="1100" height="1466" loading="lazy" decoding="async" />
+      <img class="ba__img" id="baAfterImg" src="assets/web/ba-after.jpg" alt="Finished tiled walk-in shower" width="1100" height="1466" loading="lazy" decoding="async" />
       <div class="ba__clip" id="baClip">
-        <img class="ba__img" src="assets/web/ba-before.jpg" alt="Dated shower stall before the renovation" width="1100" height="1466" loading="lazy" decoding="async" />
+        <img class="ba__img" id="baBeforeImg" src="assets/web/ba-before.jpg" alt="Dated shower stall before the renovation" width="1100" height="1466" loading="lazy" decoding="async" />
       </div>
       <div class="ba__handle" id="baHandle" role="slider" aria-label="Reveal before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
         <span class="ba__line"></span>

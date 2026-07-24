@@ -335,6 +335,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .ba__heading { font-family: var(--serif); font-weight: 700; font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.02; letter-spacing: -.01em; color: #fff; margin-bottom: 20px; }
 .ba__text p { color: rgba(255,255,255,.85); max-width: 40ch; margin-bottom: 24px; line-height: 1.6; }
 .ba__hint { display: inline-flex; align-items: center; gap: 8px; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--coral); }
+.ba__nav { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 30px; }
+.ba__arw { width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.32); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: #fff; background: transparent; transition: background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease), transform .3s var(--ease); flex: none; }
+.ba__arw:hover { background: var(--coral); color: #fff; border-color: var(--coral); }
+.ba__arw:active { transform: scale(.92); }
+.ba__dots { display: flex; gap: 10px; }
+.ba__dots button { width: 26px; height: 3px; border-radius: 2px; background: rgba(255,255,255,.3); transition: background .3s; }
+.ba__dots button.is-active { background: var(--coral); }
 .ba__viewer { --pos: 50%; position: relative; aspect-ratio: 4/5; max-width: 520px; width: 100%; overflow: hidden; border-radius: 4px; box-shadow: var(--shadow); user-select: none; touch-action: pan-y; cursor: ew-resize; }
 .ba__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .ba__clip { position: absolute; inset: 0; overflow: hidden; clip-path: inset(0 calc(100% - var(--pos)) 0 0); }

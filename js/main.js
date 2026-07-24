@@ -116,7 +116,49 @@
     if (wn) wn.addEventListener("click", function () { track.scrollBy({ left: stepW(), behavior: reduce ? "auto" : "smooth" }); });
   }
 
-  /* ---- Before / after ---- */
+  /* ---- Before / after: project slides ---- */
+  var baSlides = [
+    {
+      before: "assets/web/ba-before.jpg",
+      beforeAlt: "Dated shower stall before the renovation",
+      after: "assets/web/ba-after.jpg",
+      afterAlt: "Finished tiled walk-in shower",
+      caption: "Same shower, reimagined. Drag the handle to watch a dated, builder-grade shower become a bright tiled walk-in retreat."
+    },
+    {
+      before: "assets/web/ba2-before.jpg",
+      beforeAlt: "Dated shower with sliding glass door before the renovation",
+      after: "assets/web/ba2-after.jpg",
+      afterAlt: "Finished marble walk-in shower",
+      caption: "Same shower, reimagined. Drag the handle to watch a dated, framed-glass shower become a bright marble walk-in retreat."
+    }
+  ];
+  var baIndex = 0;
+  var baAfterImg = document.getElementById("baAfterImg");
+  var baBeforeImg = document.getElementById("baBeforeImg");
+  var baCaption = document.getElementById("baCaption");
+  var baPrev = document.getElementById("baPrev");
+  var baNext = document.getElementById("baNext");
+  var baDots = document.getElementById("baDots") ? document.getElementById("baDots").querySelectorAll("button") : [];
+  var showBaSlide = function (i) {
+    baIndex = (i + baSlides.length) % baSlides.length;
+    var s = baSlides[baIndex];
+    if (baAfterImg) { baAfterImg.src = s.after; baAfterImg.alt = s.afterAlt; }
+    if (baBeforeImg) { baBeforeImg.src = s.before; baBeforeImg.alt = s.beforeAlt; }
+    if (baCaption) baCaption.textContent = s.caption;
+    if (viewer) {
+      viewer.style.setProperty("--pos", "50%");
+      if (handle) handle.setAttribute("aria-valuenow", "50");
+    }
+    for (var d = 0; d < baDots.length; d++) baDots[d].classList.toggle("is-active", d === baIndex);
+  };
+  if (baPrev) baPrev.addEventListener("click", function () { showBaSlide(baIndex - 1); });
+  if (baNext) baNext.addEventListener("click", function () { showBaSlide(baIndex + 1); });
+  for (var bd = 0; bd < baDots.length; bd++) {
+    (function (i) { baDots[i].addEventListener("click", function () { showBaSlide(i); }); })(bd);
+  }
+
+  /* ---- Before / after: drag reveal ---- */
   var viewer = document.getElementById("baViewer");
   var handle = document.getElementById("baHandle");
   if (viewer && handle) {
