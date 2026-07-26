@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex, nofollow" />
-<title>Photo Manager (Demo) | Art Floor</title>
+<title>Gerenciador de Fotos (Demo) | Art Floor</title>
 <link rel="icon" type="image/png" href="assets/web/logo-mark.png" />
 <link rel="preconnect" href="https://api.fontshare.com" />
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
 <link href="https://api.fontshare.com/v2/css?f[]=boska@700&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --bg:#1B2A31;--surface:#22333B;--surface-2:#2A3D46;--line:#3C4F58;
-    --coral:#BC5A2D;--coral-bright:#D46B3A;--text:#D9DEE0;--text-dim:#8FA0A6;--white:#fff;
+    --bg:#22333B;--surface:#2E4A57;--surface-2:#3A5764;--line:rgba(255,255,255,.18);
+    --coral:#BC5A2D;--coral-bright:#D46B3A;--text:rgba(255,255,255,.9);--text-dim:rgba(255,255,255,.62);--white:#fff;
     --serif:"Boska","Georgia",serif;--sans:"General Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   }
   *{box-sizing:border-box;}
@@ -108,29 +108,29 @@
   <div class="admin-top">
     <a class="admin-brand" href="index.html">
       <img src="assets/web/logo-horizontal-white.png" alt="Art Floor" />
-      <span class="t">Photo Manager<small>Demo</small></span>
+      <span class="t">Gerenciador de Fotos<small>Demo</small></span>
     </a>
-    <a class="back-link" href="index.html">&larr; Back to site</a>
+    <a class="back-link" href="index.html">&larr; Voltar ao site</a>
   </div>
 
   <div class="demo-banner">
     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-    <div><b>Demo version.</b> This shows how you'd add photos to the site. Images appear here as a preview, but are <b>not saved for real yet</b>. In the final version, they'd go straight into the site's gallery.</div>
+    <div><b>Versão demonstrativa.</b> Isto mostra como vocês adicionariam fotos ao site. As imagens aparecem aqui como preview, mas <b>ainda não são salvas de verdade</b>. Na versão final, elas iriam direto para a galeria do site.</div>
   </div>
 
   <div class="welcome">
-    <h3>Hey, Artur &amp; Rozi! 👋</h3>
-    <p>Your website is your showroom, and you're the one who keeps it fresh. Just finished a job you're proud of? Got some good photos on your phone? Let's get them up here for everyone to see.</p>
-    <p>Three taps and done: pick the category, drop the photos, hit publish. That's it, live on the site.</p>
-    <div class="tip">💡 <b>Pro tip:</b> the more real project photos you add, the more clients trust what they see, and the more estimates land in your inbox. Good lighting goes a long way, and before/after shots are gold. Let's make this gallery shine. ✨</div>
+    <h3>E aí, Artur e Rozi! 👋</h3>
+    <p>O site de vocês é a vitrine do negócio, e são vocês que mantêm ela sempre atualizada. Acabaram de terminar um trabalho caprichado? Bateram fotos boas no celular? Bora colocar aqui pra todo mundo ver.</p>
+    <p>É rapidinho, em 3 toques: escolhe a categoria, joga as fotos e publica. Prontinho, já aparece no site.</p>
+    <div class="tip">💡 <b>Dica de ouro:</b> quanto mais fotos reais dos projetos vocês colocarem, mais os clientes confiam no que veem, e mais orçamentos caem na caixa de entrada. Capriche na luz, e fotos de antes e depois são um baita diferencial. Bora deixar essa galeria brilhando! ✨</div>
   </div>
 
-  <h1>Add Photos to the Gallery</h1>
-  <p class="sub">Pick a category, add photos from your phone or computer, then tap publish.</p>
+  <h1>Adicionar Fotos à Galeria</h1>
+  <p class="sub">Escolha a categoria, adicione as fotos do celular ou computador, e toque em publicar.</p>
 
   <!-- STEP 1 -->
   <div class="step">
-    <div class="step-head"><span class="step-num">1</span><h2>Choose the category</h2></div>
+    <div class="step-head"><span class="step-num">1</span><h2>Escolha a categoria</h2></div>
     <div class="cats" id="cats">
       <button class="cat active" data-cat="Ceramic & Porcelain Tile">Ceramic &amp; Porcelain Tile <small>8</small></button>
       <button class="cat" data-cat="Bathroom Remodeling">Bathroom Remodeling <small>6</small></button>
@@ -142,11 +142,11 @@
 
   <!-- STEP 2 -->
   <div class="step">
-    <div class="step-head"><span class="step-num">2</span><h2>Add the photos</h2></div>
+    <div class="step-head"><span class="step-num">2</span><h2>Adicione as fotos</h2></div>
     <div class="drop" id="drop">
       <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
-      <div class="big">Drag photos here</div>
-      <div class="small">or tap to choose from your device</div>
+      <div class="big">Arraste as fotos aqui</div>
+      <div class="small">ou toque para escolher do dispositivo</div>
     </div>
     <input type="file" id="fileInput" accept="image/*" multiple />
     <div class="previews" id="previews"></div>
@@ -154,21 +154,21 @@
 
   <!-- STEP 3 -->
   <div class="step">
-    <div class="step-head"><span class="step-num">3</span><h2>Publish</h2></div>
-    <button class="btn" id="publishBtn" disabled>Add to Gallery</button>
+    <div class="step-head"><span class="step-num">3</span><h2>Publicar</h2></div>
+    <button class="btn" id="publishBtn" disabled>Adicionar à Galeria</button>
     <div class="success" id="success"></div>
-    <p class="hint">Photos go into the chosen category and show up on the site automatically.</p>
+    <p class="hint">As fotos entram na categoria escolhida e aparecem no site automaticamente.</p>
   </div>
 
   <!-- OVERVIEW -->
   <div class="step">
-    <div class="step-head"><span class="step-num" style="background:var(--surface-2);color:var(--coral-bright);border:1px solid var(--coral)">&#10003;</span><h2>Current gallery</h2></div>
+    <div class="step-head"><span class="step-num" style="background:var(--surface-2);color:var(--coral-bright);border:1px solid var(--coral)">&#10003;</span><h2>Galeria atual</h2></div>
     <div class="overview">
       <div class="ov-card"><div class="n">8</div><div class="l">Tile</div></div>
-      <div class="ov-card"><div class="n">6</div><div class="l">Bathrooms</div></div>
+      <div class="ov-card"><div class="n">6</div><div class="l">Banheiros</div></div>
       <div class="ov-card"><div class="n">4</div><div class="l">Backsplash</div></div>
-      <div class="ov-card"><div class="n">3</div><div class="l">Fireplace</div></div>
-      <div class="ov-card"><div class="n">2</div><div class="l">Demo &amp; Prep</div></div>
+      <div class="ov-card"><div class="n">3</div><div class="l">Lareira</div></div>
+      <div class="ov-card"><div class="n">2</div><div class="l">Demolição</div></div>
     </div>
   </div>
 
@@ -209,7 +209,7 @@
       const url = URL.createObjectURL(f);
       const d = document.createElement('div');
       d.className = 'thumb';
-      d.innerHTML = `<img src="${url}" alt=""><button class="rm" title="Remove">&times;</button>`;
+      d.innerHTML = `<img src="${url}" alt=""><button class="rm" title="Remover">&times;</button>`;
       d.querySelector('.rm').addEventListener('click', () => { files.splice(i, 1); render(); });
       previews.appendChild(d);
     });
@@ -220,8 +220,8 @@
   publishBtn.addEventListener('click', () => {
     if (!files.length) return;
     const n = files.length;
-    success.innerHTML = `<b>&#10003; ${n} photo${n>1?'s':''} ready for ${activeCat}!</b>`
-      + `<span class="demo-note">This is a demo, so photos aren't saved in this version. In the final version, they'd upload right away and show up in the "${activeCat}" gallery on the site.</span>`;
+    success.innerHTML = `<b>&#10003; ${n} foto${n>1?'s':''} pronta${n>1?'s':''} para ${activeCat}!</b>`
+      + `<span class="demo-note">Isto é uma demonstração, as fotos não são salvas nesta versão. Na versão final, elas seriam enviadas e apareceriam na galeria "${activeCat}" do site na hora.</span>`;
     success.classList.add('show');
     files = [];
     fileInput.value = '';
