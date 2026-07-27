@@ -20,7 +20,7 @@
       background: var(--green); position: relative; overflow: hidden; padding: clamp(28px, 6vw, 60px) var(--edge);
     }
     .review-card { position: relative; z-index: 1; max-width: 560px; width: 100%; text-align: center; }
-    .review-logo { height: 44px; width: auto; margin: 0 auto clamp(32px, 6vw, 52px); display: block; }
+    .review-logo { height: clamp(64px, 11vw, 88px); width: auto; margin: 0 auto clamp(32px, 6vw, 52px); display: block; }
     .review-stars { display: flex; justify-content: center; gap: 6px; margin-bottom: 22px; }
     .review-stars svg { width: 26px; height: 26px; }
     .review-eyebrow { font-family: var(--sans); font-size: .78rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--coral); margin-bottom: 16px; }
@@ -34,10 +34,6 @@
     }
     .review-btn:hover { background: var(--coral-2); transform: translateY(-2px); }
     .review-btn svg { flex: none; }
-    .review-foot { margin-top: clamp(32px, 5vw, 48px); }
-    .review-foot p { font-family: var(--sans); font-size: .92rem; color: rgba(255,255,255,.6); margin-bottom: 6px; }
-    .review-foot a { color: rgba(255,255,255,.85); font-weight: 600; }
-    .review-foot a:hover { color: var(--coral); }
     @media (max-width: 480px) {
       .review-btn { width: 100%; padding: 18px 24px; }
     }
@@ -50,11 +46,11 @@
     <img class="review-logo" src="assets/web/logo-horizontal-white.png" alt="Art Floor" width="1224" height="560" />
 
     <div class="review-stars" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="#BC5A2D"><path d="M12 2.5l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.8 7.1-.7z"/></svg>
-      <svg viewBox="0 0 24 24" fill="#BC5A2D"><path d="M12 2.5l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.8 7.1-.7z"/></svg>
-      <svg viewBox="0 0 24 24" fill="#BC5A2D"><path d="M12 2.5l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.8 7.1-.7z"/></svg>
-      <svg viewBox="0 0 24 24" fill="#BC5A2D"><path d="M12 2.5l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.8 7.1-.7z"/></svg>
-      <svg viewBox="0 0 24 24" fill="#BC5A2D"><path d="M12 2.5l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.8 7.1-.7z"/></svg>
+      <svg viewBox="0 0 24 24" fill="#FFC107"><path d="M12 2.5l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.8 7.1-.7z"/></svg>
+      <svg viewBox="0 0 24 24" fill="#FFC107"><path d="M12 2.5l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.8 7.1-.7z"/></svg>
+      <svg viewBox="0 0 24 24" fill="#FFC107"><path d="M12 2.5l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.8 7.1-.7z"/></svg>
+      <svg viewBox="0 0 24 24" fill="#FFC107"><path d="M12 2.5l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.8 7.1-.7z"/></svg>
+      <svg viewBox="0 0 24 24" fill="#FFC107"><path d="M12 2.5l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.8 7.1-.7z"/></svg>
     </div>
 
     <p class="review-eyebrow">Thank you</p>
@@ -73,11 +69,6 @@
       </svg>
       Leave a Google Review
     </a>
-
-    <div class="review-foot">
-      <p>Prefer to call instead?</p>
-      <a href="tel:+14704376447">(470) 437-6447</a>
-    </div>
   </div>
 </section>
 
