@@ -291,19 +291,22 @@
     });
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      if (form.querySelector('[name="botcheck"]').value) return; // honeypot tripped
       var ok = true, first = null;
       form.querySelectorAll("input[required], select[required]").forEach(function (f) { if (!validate(f)) { ok = false; if (!first) first = f; } });
       if (!ok) { if (first) first.focus(); return; }
       var btn = form.querySelector('button[type="submit"]');
       var okMsg = document.getElementById("formOk");
       btn.disabled = true; btn.textContent = "Sending…";
-      /* Post to Netlify Forms (works once deployed on Netlify) */
-      fetch("/", {
+      /* Post to Web3Forms */
+      var payload = Object.fromEntries(new FormData(form).entries());
+      fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(new FormData(form)).toString()
-      }).then(function () {
-        if (okMsg) okMsg.hidden = false;
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(payload)
+      }).then(function (r) { return r.json(); }).then(function (data) {
+        if (!data.success) throw new Error(data.message || "Submission failed");
+        if (okMsg) { okMsg.hidden = false; okMsg.textContent = "Thank you - your request is in. We’ll reach out within one business day."; }
         form.reset();
         btn.textContent = "Request received";
       }).catch(function () {

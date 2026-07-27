@@ -354,10 +354,11 @@
       </a>
     </div>
 
-    <form class="form reveal" style="--d:1" id="estimateForm" name="estimate" method="POST"
-          data-netlify="true" netlify-honeypot="bot-field" novalidate>
-      <input type="hidden" name="form-name" value="estimate" />
-      <p class="hp" hidden aria-hidden="true"><label>Don’t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+    <form class="form reveal" style="--d:1" id="estimateForm" name="estimate" method="POST" novalidate>
+      <input type="hidden" name="access_key" value="bd02b30c-7d20-41ae-b8e4-24c1a446a55c" />
+      <input type="hidden" name="subject" value="New estimate request - Art Floor website" />
+      <input type="hidden" name="from_name" value="Art Floor website" />
+      <p class="hp" hidden aria-hidden="true"><label>Don’t fill this out: <input name="botcheck" tabindex="-1" autocomplete="off" /></label></p>
       <div class="field">
         <label for="name">Name</label>
         <input id="name" name="name" type="text" autocomplete="name" required placeholder="Your full name" />
