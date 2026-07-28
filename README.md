@@ -47,8 +47,8 @@ The form (`#estimateForm` in `index.html`) posts via `fetch()` to the Web3Forms 
 - GitHub Pages does not support custom HTTP headers, so `X-Frame-Options` / `X-Content-Type-Options` / HSTS cannot be set from this repo. If those are ever required, front the site with Cloudflare Pages/Workers.
 - No third-party JS libraries anywhere (no npm dependencies), no `eval`/`innerHTML`/inline scripts.
 
-## `admin.html`: photo manager (demo only)
-Visual walkthrough of what adding photos could look like for Artur & Rozi. Photos preview client-side only (`URL.createObjectURL`), **nothing is actually uploaded or saved**. To make it real, connect a free Cloudinary account (unsigned upload preset) and wire `js/admin.js` to it, then update the gallery on `index.html` to pull from there.
+## `admin.html`: photo manager
+Password-gated panel (client-side SHA-256 check via `js/admin-lock.js`, deterrent only, not real auth) for Artur & Rozi to add project photos themselves. Photos upload for real to a Cloudinary account (unsigned upload preset, `js/admin.js`), tagged per category. `js/gallery-cloud.js` on `index.html` fetches Cloudinary's public tag-based resource list and appends new photos to the "Selected work" gallery automatically, no manual step required. Requires the Cloudinary account's Settings → Security → "Resource list" restriction to stay unchecked (public, tag-scoped listing only, no account secrets exposed).
 
 ## Built in
 Semantic HTML, single h1, skip link, visible focus, ARIA on widgets; JSON-LD `HomeAndConstructionBusiness`, Open Graph, canonical; lazy-loaded images with explicit dimensions; reduced-motion support throughout.
