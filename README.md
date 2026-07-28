@@ -47,9 +47,6 @@ The form (`#estimateForm` in `index.html`) posts via `fetch()` to the Web3Forms 
 - GitHub Pages does not support custom HTTP headers, so `X-Frame-Options` / `X-Content-Type-Options` / HSTS cannot be set from this repo. If those are ever required, front the site with Cloudflare Pages/Workers.
 - No third-party JS libraries anywhere (no npm dependencies), no `eval`/`innerHTML`/inline scripts.
 
-## ⚠️ Still placeholder, needs real values
-- **Service areas** (footer marquee + areas section) are generic neighborhood names (Downtown, Midtown, etc.), set to the real coverage area/city names.
-
 ## `admin.html`: photo manager (demo only)
 Visual walkthrough of what adding photos could look like for Artur & Rozi. Photos preview client-side only (`URL.createObjectURL`), **nothing is actually uploaded or saved**. To make it real, connect a free Cloudinary account (unsigned upload preset) and wire `js/admin.js` to it, then update the gallery on `index.html` to pull from there.
 
