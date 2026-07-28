@@ -4,6 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex, nofollow" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://api.fontshare.com https://fonts.googleapis.com; font-src 'self' https://cdn.fontshare.com https://fonts.gstatic.com; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
 <title>Gerenciador de Fotos (Demo) | Art Floor</title>
 <link rel="icon" type="image/png" href="assets/web/logo-mark.png" />
 <link rel="preconnect" href="https://api.fontshare.com" />
@@ -178,62 +180,6 @@
 
 </div>
 
-<script>
-  let activeCat = 'Ceramic & Porcelain Tile';
-  let files = [];
-
-  const cats = document.getElementById('cats');
-  const drop = document.getElementById('drop');
-  const fileInput = document.getElementById('fileInput');
-  const previews = document.getElementById('previews');
-  const publishBtn = document.getElementById('publishBtn');
-  const success = document.getElementById('success');
-
-  cats.addEventListener('click', e => {
-    const b = e.target.closest('.cat'); if (!b) return;
-    cats.querySelectorAll('.cat').forEach(c => c.classList.remove('active'));
-    b.classList.add('active');
-    activeCat = b.dataset.cat;
-    success.classList.remove('show');
-  });
-
-  drop.addEventListener('click', () => fileInput.click());
-  ['dragenter','dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('drag'); }));
-  ['dragleave','drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('drag'); }));
-  drop.addEventListener('drop', e => addFiles(e.dataTransfer.files));
-  fileInput.addEventListener('change', () => addFiles(fileInput.files));
-
-  function addFiles(list) {
-    [...list].forEach(f => { if (f.type.startsWith('image/')) files.push(f); });
-    render();
-  }
-  function render() {
-    previews.innerHTML = '';
-    files.forEach((f, i) => {
-      const url = URL.createObjectURL(f);
-      const d = document.createElement('div');
-      d.className = 'thumb';
-      d.innerHTML = `<img src="${url}" alt=""><button class="rm" title="Remover">&times;</button>`;
-      d.querySelector('.rm').addEventListener('click', () => { files.splice(i, 1); render(); });
-      previews.appendChild(d);
-    });
-    publishBtn.disabled = files.length === 0;
-    success.classList.remove('show');
-  }
-
-  publishBtn.addEventListener('click', () => {
-    if (!files.length) return;
-    const n = files.length;
-    success.innerHTML = `<b>&#10003; ${n} foto${n>1?'s':''} pronta${n>1?'s':''} para ${activeCat}!</b>`
-      + `<span class="demo-note">Isto é uma demonstração, as fotos não são salvas nesta versão. Na versão final, elas seriam enviadas e apareceriam na galeria "${activeCat}" do site na hora.</span>`;
-    success.classList.add('show');
-    files = [];
-    fileInput.value = '';
-    render();
-    publishBtn.disabled = true;
-    success.classList.add('show');
-    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  });
-</script>
+<script src="js/admin.js" defer></script>
 </body>
 </html>

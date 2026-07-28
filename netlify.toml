@@ -1,4 +1,10 @@
-# Netlify configuration — static site, no build step
+# ⚠️ INERTE: este site está hospedado no GitHub Pages, não no Netlify.
+# O GitHub Pages NÃO lê este arquivo, nenhuma das regras abaixo (cache, headers)
+# é aplicada em produção. Mantido apenas como referência caso o site volte a ser
+# hospedado no Netlify no futuro. Os headers de segurança reais hoje são
+# aplicados via <meta> tags no <head> de cada página HTML.
+#
+# Netlify configuration, static site, no build step
 [build]
   publish = "."
 
