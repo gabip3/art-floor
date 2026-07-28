@@ -1,11 +1,13 @@
-# Art Floor — Website
+# Art Floor Website
 
-Editorial site for **Art Floor LLC**, a flooring company (hardwood, luxury vinyl, laminate, tile & stone). Plain HTML/CSS/JS, no build step — deploy the folder to any static host.
+Editorial site for **Art Floor LLC**, a ceramic tile, porcelain tile & natural stone installation company (bathrooms, showers, kitchens, fireplaces, backsplashes, and flooring). Plain HTML/CSS/JS, no build step, no framework, no dependencies.
 
-> Repurposed from an earlier build. All previous-client content has been removed.
+**Live site:** https://www.artflooratl.com
+**Repo:** https://github.com/gabip3/art-floor
+**Hosting:** GitHub Pages, custom domain via the `CNAME` file, HTTPS auto-issued by GitHub.
 
-## Concept — "Art you walk on"
-The floor is the one surface you touch every day — treated here like artwork. Terracotta + slate-teal + cream palette (from the logo), Zodiak + General Sans type, immersive sections, a drag-through gallery of floors, and a "prep → finish" section showing the hidden subfloor craft.
+## Concept: "Art you live in."
+The floor, shower, or backsplash is the one surface you touch every day, treated here like artwork. Slate-teal + terracotta + white palette (from the logo), Boska (display serif) + General Sans type, immersive full-bleed sections, a drag-through gallery of real project photos, an interactive before/after slider, and a horizontal animated "how it works" workflow.
 
 ## Run locally
 ```bash
@@ -14,33 +16,42 @@ npx serve .
 
 ## Structure
 ```
-index.html        # markup + JSON-LD schema + OG tags
-css/styles.css    # design tokens + all styling
-js/main.js        # reveals, counters, gallery, reviews, form
-404.html          # branded not-found page
-assets/web/       # logo.svg + optimized floor photos
+index.html        # main site: markup + JSON-LD schema + OG tags + CSP
+admin.html         # demo photo-manager panel (not wired to a real backend yet, see below)
+review.html        # standalone "leave us a Google review" landing page, for sharing after a job
+404.html           # branded not-found page
+css/styles.css     # design tokens + all styling
+js/main.js         # reveals, gallery, before/after slider, workflow, contact form
+js/admin.js        # admin.html's photo-preview demo logic
+assets/web/        # logos + optimized real project photos/videos
+netlify.toml       # INERT, kept only for reference, GitHub Pages ignores this file
 ```
 
 ## Brand tokens (in :root of styles.css)
 | Token | Value | Use |
 |---|---|---|
-| `--green` | #2E4A57 | slate teal — dark sections, buttons, headings |
-| `--coral` | #BC5A2D | terracotta — accents, dots, emphasis, hovers |
-| `--paper` / `--bone` | #F5EFE2 / #EBE1CE | cream backgrounds |
+| `--green` | #2E4A57 | slate teal, dark sections, buttons, headings |
+| `--coral` | #BC5A2D | terracotta, accents, hovers, CTA |
+| `--paper` | #FFFFFF | white, page background |
+| `--bone` | #F2F3F4 | neutral off-white, alternating sections |
 | `--ink` | #24221E | warm near-black text |
 
-**Type:** Zodiak (display serif) + General Sans (body), from Fontshare.
-**Logo:** `assets/web/logo.svg` (self-contained badge; used in header + footer + favicon).
+**Type:** Boska (display serif, headings) + General Sans (body), both from Fontshare. `admin.html` also uses Libre Baskerville (Google Fonts) for its own headings, for better legibility at small sizes.
+**Logo:** `assets/web/logo-horizontal.png` (header, colored), `logo-horizontal-white.png` (footer + dark pages, transparent white version), `logo-mark.png` (favicon + square mark).
 
-## ⚠️ Placeholder content to replace before launch
-- **Phone** is fictitious: `(555) 240-7519` — swap for the real number (search the codebase for it).
-- **Photos** in `assets/web/` are placeholders — replace with Art Floor's own project photos (same filenames).
-- **Reviews** (3 quotes) and **stats** (10+ yrs, 500+ floors, 5.0 Google) are representative placeholders — set to real values.
-- **Service areas** are generic neighborhood names — set to the real coverage area.
-- **Domain**: `www.artfloor.example` in canonical/OG/sitemap/robots — replace with the real domain.
+## Contact form (Web3Forms)
+The form (`#estimateForm` in `index.html`) posts via `fetch()` to the Web3Forms API using a public `access_key`. Submissions are delivered to the inbox configured in the Web3Forms dashboard for the "Art Floor" form. This key is meant to be public (same model as a Firebase client config or reCAPTCHA site key); the Web3Forms free plan does not support domain-locking the key, only the paid plan does.
 
-## Contact form (Netlify Forms)
-The form is wired for Netlify Forms (`name="estimate"`, honeypot spam trap). Once deployed on Netlify, submissions appear in **Netlify → Forms → estimate**. Add an email notification in *Forms → Settings*. (It does not send when opened locally.)
+## Security
+- `Content-Security-Policy` + `Referrer-Policy` set via `<meta>` on every page (adjusted per page to what it actually loads).
+- GitHub Pages does not support custom HTTP headers, so `X-Frame-Options` / `X-Content-Type-Options` / HSTS cannot be set from this repo. If those are ever required, front the site with Cloudflare Pages/Workers.
+- No third-party JS libraries anywhere (no npm dependencies), no `eval`/`innerHTML`/inline scripts.
+
+## ⚠️ Still placeholder, needs real values
+- **Service areas** (footer marquee + areas section) are generic neighborhood names (Downtown, Midtown, etc.), set to the real coverage area/city names.
+
+## `admin.html`: photo manager (demo only)
+Visual walkthrough of what adding photos could look like for Artur & Rozi. Photos preview client-side only (`URL.createObjectURL`), **nothing is actually uploaded or saved**. To make it real, connect a free Cloudinary account (unsigned upload preset) and wire `js/admin.js` to it, then update the gallery on `index.html` to pull from there.
 
 ## Built in
-Semantic HTML, single h1, skip link, visible focus, ARIA on widgets; JSON-LD `HomeAndConstructionBusiness` + `FAQPage`, Open Graph, canonical; lazy-loaded images with explicit dimensions; reduced-motion support.
+Semantic HTML, single h1, skip link, visible focus, ARIA on widgets; JSON-LD `HomeAndConstructionBusiness`, Open Graph, canonical; lazy-loaded images with explicit dimensions; reduced-motion support throughout.
