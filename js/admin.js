@@ -2,6 +2,7 @@
   "use strict";
   var CLOUD_NAME = "fvdx3cet";
   var UPLOAD_PRESET = "fintsymg";
+  var TAG_PREFIX = "artfloor_";
   var activeCat = 'Ceramic & Porcelain Tile';
   var files = [];
 
@@ -57,6 +58,7 @@
     fd.append('file', file);
     fd.append('upload_preset', UPLOAD_PRESET);
     fd.append('folder', 'art-floor/' + slugify(activeCat));
+    fd.append('tags', TAG_PREFIX + slugify(activeCat));
     return fetch('https://api.cloudinary.com/v1_1/' + CLOUD_NAME + '/image/upload', {
       method: 'POST',
       body: fd
