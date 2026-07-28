@@ -4,9 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex, nofollow" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://api.fontshare.com https://fonts.googleapis.com; font-src 'self' https://cdn.fontshare.com https://fonts.gstatic.com; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://api.fontshare.com https://fonts.googleapis.com; font-src 'self' https://cdn.fontshare.com https://fonts.gstatic.com; img-src 'self' data: blob:; media-src 'self'; connect-src 'self' https://api.cloudinary.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests" />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
-<title>Gerenciador de Fotos (Demo) | Art Floor</title>
+<title>Gerenciador de Fotos | Art Floor</title>
 <link rel="icon" type="image/png" href="assets/web/logo-mark.png" />
 <link rel="preconnect" href="https://api.fontshare.com" />
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
@@ -114,14 +114,14 @@
   <div class="admin-top">
     <a class="admin-brand" href="index.html">
       <img src="assets/web/logo-horizontal-white.png" alt="Art Floor" />
-      <span class="t">Gerenciador de Fotos<small>Demo</small></span>
+      <span class="t">Gerenciador de Fotos</span>
     </a>
     <a class="back-link" href="index.html">&larr; Voltar ao site</a>
   </div>
 
   <div class="demo-banner">
     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-    <div><b>Versão demonstrativa.</b> Isto mostra como vocês adicionariam fotos ao site. As imagens aparecem aqui como preview, mas <b>ainda não são salvas de verdade</b>. Na versão final, elas iriam direto para a galeria do site.</div>
+    <div><b>As fotos já sobem de verdade.</b> Ao publicar, elas vão direto pro Cloudinary, organizadas por categoria. Elas ainda não aparecem sozinhas na galeria do site, avisa o Claude depois de subir fotos novas pra ele atualizar a página.</div>
   </div>
 
   <div class="welcome">
